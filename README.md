@@ -50,7 +50,7 @@ SecurePass Generator is built using modern web technologies for a fast and relia
 
 * **Frontend:** HTML5, CSS3, JavaScript (Vanilla)
 * **Styling:** custom CSS
-* **Deployment:** Vercel, GitHub Pages
+* **Deployment:** Vercel
 
 ***
 
