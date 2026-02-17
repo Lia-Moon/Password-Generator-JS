@@ -4,8 +4,8 @@
 :root {
 	--cor-fundo-pagina: #F4F4F4;
 
-    --font-primaria: 'Bricolage Grotesque', serif; /* Fonte usada no título */
-    --font-secundaria: 'Source Sans 3', serif; /* Fonte usada nos demais textos*/
+    --font-primaria: 'Bricolage Grotesque', serif; /* Font used in the title */
+    --font-secundaria: 'Source Sans 3', serif; /* Font used in the other texts*/
 }
 
 body { 
@@ -73,9 +73,8 @@ main {
     align-items: center;
 }
 
-.page-output-container-password { /* Campo de senha gerada */
+.page-output-container-password { /* Generated password field */
     align-self: center;
-    pointer-events: none;
     border: none;
     background: none;
     color: #D9D9D9; 
@@ -84,13 +83,16 @@ main {
     padding: 0 10px;
 }
 
-.page-output .material-symbols-outlined { /* Ícone reload */
+.page-output-container-password:focus { /* Generated password field when clicked */
+    outline: none;
+}
+
+.page-output .material-symbols-outlined { /* Icon reload */
     color: #D9D9D9;
     font-size: 39px;
     cursor: pointer;
     margin-right: 5px;
 }
-
 
 #reload-button {
     transition: all 0.15s ease-out;
@@ -166,7 +168,7 @@ main {
     justify-content: center;
 }
 
-.size-password-description { /* Texto Tamanho senha */
+.size-password-description { /* Password size description */
     font-family: var(--font-secundaria);
     font-size: 20px;
     color: #D9D9D9;
@@ -305,7 +307,7 @@ main {
     user-select: none;
 }
 
-/* Estiliza o checkmark customizado */
+/* Style customizable checkmark */
 .caracters-selection-options .checkmark {
     width: 33px;
     height: 32px;
@@ -322,9 +324,9 @@ main {
     color: #D9D9D9;
 }
 
-/* Estiliza quando o checkbox está marcado */
+/* Style when checkbox is checked */
 .checkbox:checked + .checkmark {
-    color: #000; /* Cor do check marcado */
+    color: #000; /* Color of the checked checkmark */
     transition: 0.3s ease-in-out;
 }
 
