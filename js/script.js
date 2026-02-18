@@ -9,8 +9,8 @@ window.onload = function() {
     const minusButton = document.querySelector("#minus-button");
     const plusButton = document.querySelector("#plus-button");
 
-    const minValuePassword = 6;    
-    const maxValuePassword = 35;     
+    const minValuePassword = 1;    
+    const maxValuePassword = 50;     
 
     // Options -------------------------------------------------------------
     // slider

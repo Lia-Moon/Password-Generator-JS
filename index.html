@@ -8,9 +8,10 @@
     <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
 
     <link rel="stylesheet" href="./styles/reset.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-	<link rel="stylesheet" href="./styles/style.css">
+    <link rel="stylesheet" href="./styles/style.css">
 
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
 
@@ -29,7 +30,7 @@
 
         <div class="page-output">
             <div class="page-output-container">
-                <input type="text" class="page-output-container-password">
+                <input type="text" class="page-output-container-password" readonly>
                 <i id="reload-button" class="material-symbols-outlined">cached</i> <!-- reload -->
             </div> 
         </div>
@@ -42,48 +43,51 @@
             </div>
         </div>        
     
-        <div class="size-password-description">
-            <p>Password Length:</p>
-            <span class="size-password-description-value">10</span>
-        </div>
-
-        <div class="size-password-slider">
+        <div class="size-password">
+            <div class="size-password-length-value">
+                <p>Password Length:</p>
+                <span class="size-password-value">10</span>
+            </div>            
             <div class="size-password-slider-field">
                 <i id="minus-button" class="material-symbols-outlined minus">do_not_disturb_on</i> <!-- minus symble  -->
-                <input type="range" min="6" max="35" value="10" steps="1">            
+                <input type="range" min="1" max="50" value="10" steps="1">            
                 <i id="plus-button" class="material-symbols-outlined plus">add_circle</i> <!-- plus symble -->
             </div>
         </div>
 
          <div class="caracters-selection">
-            <div class="caracters-selection--description">
-                <p>Select character options</p>
-            </div>
-            <div class="caracters-selection-options">
+            <p>Character options:</p>
+            <div class="caracters-selection-option">
                 <label>
                     <input type="checkbox" class="checkbox" id="checkbox-uppercase" checked>
                     <span class="material-symbols-outlined checkmark">check</span>
                 </label>    
                 <p>ABC</p>
+            </div>
+            <div class="caracters-selection-option">
                 <label>
                     <input type="checkbox" class="checkbox" id="checkbox-lowercase" checked>
                     <span class="material-symbols-outlined checkmark">check</span>
                 </label>    
                 <p>abc</p>
+            </div>
+            <div class="caracters-selection-option">
                 <label>
                     <input type="checkbox" class="checkbox" id="checkbox-numbers">
                     <span class="material-symbols-outlined checkmark">check</span>
                 </label>   
                 <p>123</p>
+            </div>
+            <div class="caracters-selection-option">
                 <label>
                     <input type="checkbox" class="checkbox" id="checkbox-special">
                     <span class="material-symbols-outlined checkmark">check</span>
                 </label> 
                 <p>%#$</p>
-            </div>
+            </div>      
         </div>
         <footer class="footer-copyright">
-            <p>&#169; Copyright - Júlia Vieira - 2025</p>
+            <p>&#169; Copyright - Júlia Vieira - 2026</p>
         </footer>
         
         <script src="./js/script.js"></script>

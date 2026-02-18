@@ -2,67 +2,85 @@
 @import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap');
 
 :root {
-	--cor-fundo-pagina: #F4F4F4;
+    --primary-color: #B17DFF;
+	--secondary-color: #D9D9D9;
+	--black-color: #000;    
+	--white-color-gradient: #FFF;
 
-    --font-primaria: 'Bricolage Grotesque', serif; /* Fonte usada no título */
-    --font-secundaria: 'Source Sans 3', serif; /* Fonte usada nos demais textos*/
+    --primary-font: 'Bricolage Grotesque', serif; /* Font used in the title */
+    --secondary-font: 'Source Sans 3', serif; /* Font used in the other texts*/
 }
 
 body { 
     width: 100%;
     min-height: 100vh; 
     margin: 0;
-    background: linear-gradient(290deg, #B17DFF 3.65%, #000 49.08%);
+    background: linear-gradient(290deg, var(--primary-color) 3.65%, var(--black-color) 49.08%);
     display: flex;             
     flex-direction: column;     
 }
 
-main {
-    flex: 1;
-}
-
 /* --------------------------------------- .page-header --------------------------------------- */
 .page-header {
-    font-family: var(--font-primaria);
+    font-family: var(--primary-font);
     font-size: 65px;
     text-align: center;
     font-style: normal;
     font-weight: 400;
     line-height: normal;
-    padding: 1.8rem 5rem;
+    display: flex;
+    flex-direction: column;     
+    margin: 1.8rem 0;
+    min-width: 80%;
 }
 
 .page-header-title-solid {
-    color: #D9D9D9;
+    color: var(--secondary-color);
 }
 
 .page-header-title-colourful {
-    background: linear-gradient(90deg, #A76CFF 0%, #FFF 100%);
+    background: linear-gradient(90deg, #A76CFF 0%, var(--white-color-gradient) 100%);
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;  
 }
 
+/* Media query for smaller screens */
+@media (max-width: 768px) {
+    .page-header {
+        font-size: 55px;
+    }
+}
+
 /* --------------------------------------- .page-subtitle --------------------------------------- */
 .page-subtitle {
-    font-family: var(--font-secundaria);
-    font-size: 22px;
-    color: #D9D9D9;
-    text-align: center;
-    padding: 0rem 5rem 1.8rem 5rem;
+    display: flex;
+    flex-direction: column;     
+    align-items: center;
+    margin-bottom: 1.8rem;
     line-height: 30px;
+    width: 100%;
+}
+
+.page-subtitle p {
+    font-family: var(--secondary-font);
+    font-size: 22px;
+    color: var(--secondary-color);    
+    text-align: center;
+    max-width: 80%;
 }
 
 /* --------------------------------------- .page__output --------------------------------------- */
 
+/* Generated password */
 .page-output {
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: center;       
+    max-width: 100%; 
 }
 
 .page-output-container {
-    width: 584px;
     height: 58px;
     border-radius: 10px;
     background: rgba(177, 125, 255, 0.76);
@@ -70,27 +88,34 @@ main {
     display: flex;
     justify-content: space-between;
     gap: 10px;
-    align-items: center;
+    align-items: center;           
+    flex-grow: 1;
+    max-width: 50%;
+    min-width: 300px; 
+    padding: 0 10px; 
 }
 
-.page-output-container-password { /* Campo de senha gerada */
+.page-output-container-password { /* Generated password field */
     align-self: center;
-    pointer-events: none;
     border: none;
     background: none;
-    color: #D9D9D9; 
+    color: var(--secondary-color); 
     font-size: 25px;
+    max-width: 90%; 
     flex-grow: 1;
     padding: 0 10px;
 }
 
-.page-output .material-symbols-outlined { /* Ícone reload */
-    color: #D9D9D9;
-    font-size: 39px;
-    cursor: pointer;
-    margin-right: 5px;
+.page-output-container-password:focus { /* Generated password field when clicked */
+    outline: none;
 }
 
+.page-output .material-symbols-outlined { /* Icon reload */
+    color: var(--secondary-color);
+    font-size: 39px;
+    cursor: pointer;
+    flex-shrink: 0;
+}
 
 #reload-button {
     transition: all 0.15s ease-out;
@@ -98,11 +123,22 @@ main {
 }
 
 #reload-button:hover {
-    color: #D9D9D9;
+    color: var(--secondary-color);
 }
 
 #reload-button:active {
     transform: translateY(1px); 
+}
+
+/* Media query for smaller screens */
+@media (max-width: 768px) {
+    .page-output-container {
+        max-width: 80%;
+        min-width: 200px;
+    }
+    .page-output .material-symbols-outlined {
+        font-size: 30px; 
+    }
 }
 
 /* --------------------------------------- .copy-button e .generate-button --------------------------------------- */
@@ -110,35 +146,34 @@ main {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 20px;
-    margin-top: 1rem;
+    gap: 3rem;
+    margin: 2rem 0;
     user-select: none;
+    width: 100%;
 }
 
 .copy-button, .generate-button {
     text-align: center;
-    margin-left: 0.1%;
-    width: 91px;
-    height: 46px;
-    padding: 1rem 1.5rem;
+    /* margin: 1rem 0; */
+    width: 120px;
+    height: 46px;    
 }
 
 .copy-button button, .generate-button button {
     border-radius: 10px;
-    border-color: #D9D9D9;
+    border-color: var(--secondary-color);
     background-color: rgba(0, 0, 0, 0);
-    /* background: #D9D9D9; */
-    color: #D9D9D9;
+    color: var(--secondary-color);
     padding: 8px 20px;
     cursor: pointer;
-    font-family: var(--font-secundaria);
+    font-family: var(--secondary-font);
     font-size: 20px;
     width: 120px;
 }
 
 .copy-button button:hover, .generate-button button:hover {
-    background: #D9D9D9;
-    color: #000;
+    background: var(--secondary-color);
+    color: var(--black-color);
 }
 
 /* --------------------------------------- .minus-button e .plus-button --------------------------------------- */
@@ -149,7 +184,7 @@ main {
 }
 
 #minus-button:hover, #plus-button:hover {
-    color: #D9D9D9;
+    color: var(--secondary-color);
 }
 
 #minus-button:active, #plus-button:active {
@@ -158,53 +193,37 @@ main {
 
 /* --------------------------------------- .size__password --------------------------------------- */
 
-.size__password {
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    justify-content: center;
-}
-
-.size-password-description { /* Texto Tamanho senha */
-    font-family: var(--font-secundaria);
+.size-password { /* Password size description */
+    font-family: var(--secondary-font);
     font-size: 20px;
-    color: #D9D9D9;
+    color: var(--secondary-color);
     text-align: center;
-    padding: 1.2rem 0 1.2rem 0;
+    margin-bottom: 1.2rem;
     position: relative;
     display: flex;
+    flex-direction: row;
     justify-content: center;
     align-items: center;
     gap: 20px;
 }
 
-.size-password-description-value {
+.size-password-length-value {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.size-password-value {
     position: relative;
     display: flex;
     justify-content: center;
-    background: #B17DFF;
-    color: #000;
+    background: var(--primary-color);
+    color: var(--black-color);
     padding: 10px;
     border-radius: 10px;
     width: 20px;
-}
-
-.size-password-slider {
-    position: relative;
-    display: flex;
-
-    text-align: center;
-    align-items: center;
-    justify-content: center;
-
-   /*  height: 80px;
-    width: 100px; */
-    
-    padding: 0 4rem 1rem 4rem;
-    font-family: var(--font-secundaria);
-    font-size: 20px;
-    color: #D9D9D9;
 }
 
 .size-password-slider-field {
@@ -212,14 +231,11 @@ main {
     display: flex;
     align-items: center;
     justify-content: center;
-    /* height: 100%;
-    width: 100%; */
-
     text-align: center;
 }
 
 .size-password-slider i {
-    color: #D9D9D9;
+    color: var(--secondary-color);
     font-size: 29px;
     cursor: pointer;
     margin: 10px;
@@ -231,7 +247,7 @@ main {
     height: 10px;
     border: none;
     border-radius: 90px;
-    background: #D9D9D9;
+    background: var(--secondary-color);
     outline: none;
     border: none;
     z-index: 3;
@@ -242,58 +258,61 @@ main {
     width: 20px;
     height: 20px;
     border-radius: 50%;
-    background: #B17DFF;
+    background: var(--primary-color);
     cursor: pointer;
-    border: 1px solid #D9D9D9;
+    border: 1px solid var(--secondary-color);
 }
 
 .size-password-slider-field input::-moz-range-thumb {
-    /* -webkit-appearance: none; */
     width: 20px;
     height: 20px;
     border-radius: 50%;
-    background: #B17DFF;
+    background: var(--primary-color);
     cursor: pointer;
-    border: 1px solid #D9D9D9;
+    border: 1px solid var(--secondary-color);
 }
 
 .size-password-slider-field input::-moz-range-progress {
-    background: #B17DFF;
+    background: var(--primary-color);
+}
+
+/* Media query for smaller screens */
+@media (max-width: 768px) {
+    .size-password {        
+        flex-direction: column;   
+    }
 }
 
 /* --------------------------------------- .caracters-selection --------------------------------------- */
 
 .caracters-selection {
-    padding: 1rem 4rem 2rem 2rem;
-}
-
-.caracters-selection--description { /* Select character options */
-    font-family: var(--font-secundaria);
-    font-size: 20px;
-    color: #D9D9D9;
-    text-align: center;
-    padding: 0rem 5rem 2rem 5rem;
-}
-
-.caracters-selection-options {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 20px;
+    gap: 1rem;
     flex-wrap: wrap;
+    padding: 1rem 4rem 2rem 2rem;
+}
+
+.caracters-selection p {
+    color: var(--secondary-color);
+    font-family: var(--secondary-font);
+    font-size: 20px;
+    margin: 0;
+    text-align: center;
 }
 
 /* Hide the browser's default checkbox */
-.caracters-selection-options input {
+.caracters-selection input {
     position: absolute;
     opacity: 0;
     cursor: pointer;
 }
 
-.caracters-selection-options label {
+.caracters-selection label {
     border: none;
     border-radius: 10px;
-    background: #D9D9D9;
+    background: var(--secondary-color);
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25) inset;
     width: 33px;
     height: 32px;
@@ -305,12 +324,12 @@ main {
     user-select: none;
 }
 
-/* Estiliza o checkmark customizado */
-.caracters-selection-options .checkmark {
+/* Style customizable checkmark */
+.caracters-selection .checkmark {
     width: 33px;
     height: 32px;
     border-radius: 6px;
-    background: #D9D9D9;
+    background: var(--secondary-color);
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25) inset;
     position: absolute;
     display: flex;
@@ -318,30 +337,35 @@ main {
     align-items: center;
 }
 
-.checkmark {
-    color: #D9D9D9;
+/* Style each option */
+.caracters-selection-option {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 0 1 auto; 
 }
 
-/* Estiliza quando o checkbox está marcado */
+.caracters-selection-option p {
+    padding-left: 5px;
+}
+
+.checkmark {
+    color: var(--secondary-color);
+}
+
+/* Style when checkbox is checked */
 .checkbox:checked + .checkmark {
-    color: #000; /* Cor do check marcado */
+    color: var(--black-color); /* Color of the checked checkmark */
     transition: 0.3s ease-in-out;
 }
 
-.caracters-selection-options p {
-    color: #D9D9D9;
-    font-family: var(--font-secundaria);
-    font-size: 20px;
-    margin: 0;
-    text-align: center;
-}
-
 .popup_message-title {
-    font-family: var(--font-primaria);
+    font-family: var(--primary-font);
 }
 
 .popup_message-text {
-    font-family: var(--font-secundaria);
+    font-family: var(--secondary-font);
 }
 
 /* --------------------------------------- .footer-copyright --------------------------------------- */
@@ -354,8 +378,8 @@ main {
     width: 100%;
     text-align: center;
     box-sizing: border-box;
-    font-family: var(--font-secundaria);
-    color: #D9D9D9;
+    font-family: var(--secondary-font);
+    color: var(--secondary-color);
     background: rgba(199, 165, 250, 0.28);
     padding: 10px;
 }
@@ -365,4 +389,3 @@ main {
     margin: 0; 
     line-height: 20px;
 }
-
