@@ -103,6 +103,7 @@ body {
     font-size: 25px;
     max-width: 90%; 
     flex-grow: 1;
+    padding: 0 10px;
 }
 
 .page-output-container-password:focus { /* Generated password field when clicked */
