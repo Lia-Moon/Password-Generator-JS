@@ -16,8 +16,11 @@ window.onload = function() {
     // slider
     const inputSlider = document.querySelector(".size-password-slider-field input");
     let valueInputSlider = inputSlider.value;
-    // value showed for the size
-    const numberShowed = document.querySelector(".size-password-description-value");
+    // value showed for the size (span inside .size-password-length-value)
+    const numberShowed = document.querySelector(".size-password-value");
+
+    // set initial display
+    numberShowed.textContent = valueInputSlider;
 
     inputSlider.oninput = (()=>{
         valueInputSlider = inputSlider.value;
